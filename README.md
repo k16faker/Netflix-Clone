@@ -17,5 +17,8 @@
  비슷한 사례가 검색해봐도 나오지 않음.
 
 * 호스팅 주소
- - https://netflix-clone-de0b9.web.app/
+ - https://netflix-clone-de0b9.web.app/  (firebase 호스팅 주소, 현재 차단으로 예상)
+
+ - https://netflix-clone-flame-mu.vercel.app/ (vercel을 통한 호스팅)
+
  - 하지만 구글 크롬으로 들어갈 경우 보안위험으로 차단당함. 삼성 인터넷이나 사파리에서는 정상작동 되는 것을 확인.
