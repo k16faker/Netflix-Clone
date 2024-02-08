@@ -5,7 +5,6 @@ import { db } from "../firebase";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 
 const Movie = ({ item }) => {
-
   const [like, setLike] = useState(false);
 
   const [saved, setSaved] = useState(false);
@@ -13,8 +12,10 @@ const Movie = ({ item }) => {
 
   const movieId = doc(db, "users", `${user?.email}`);
 
+  let url = `https://www.youtube.com/results?search_query=${item?.title}`;
+
   const saveShow = async () => {
-    if(user?.email) {
+    if (user?.email) {
       setLike(!like);
       setSaved(true);
       await updateDoc(movieId, {
@@ -25,13 +26,16 @@ const Movie = ({ item }) => {
         }),
       });
     } else {
-      alert("Please login to save the movie")
+      alert("Please login to save the movie");
     }
-  }
+  };
 
   return (
     <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2">
       <img
+        onClick={() => {
+          window.open(url);
+        }}
         className="w-full h-auto block"
         src={`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`}
         alt={item?.title}
